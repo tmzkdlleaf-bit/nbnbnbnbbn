@@ -13,37 +13,35 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="Config.js?v=5" defer></script>
+<script src="Config.js" defer></script>
 <script src="Radar.js" defer></script>
-<script src="Map.js?v=1" defer></script>
-<script src="Auth.js?v=6" defer></script>
+<script src="Map.js" defer></script>
+<script src="Auth.js" defer></script>
 <script src="UI.js" defer></script>
-<script src="Character.js?v=45" defer></script>
-<script src="Features.js?v=41" defer></script>
-<script src="Combat.js?v=45" defer></script>
-<script src="Character_combat_patch.js?v=4" defer></script>
-<script src="Myroom.js?v=21" defer></script>
+<script src="Character.js" defer></script>
+<script src="Features.js" defer></script>
+<script src="Combat.js" defer></script>
+<script src="Character_combat_patch.js" defer></script>
+<script src="Myroom.js" defer></script>
 </head>
 <body>
 
 <div id="dust-container"></div>
-
 <div class="container">
 
   <div class="header-banner">
-    <img src="https://placehold.co/1280x200/1a1614/d7b33d?text=Header+Banner" alt="Header Banner">
+    <img src="https://placehold.co/1280x200/1a1614/d7b33d?text=Header+Banner" alt="상단 배너">
   </div>
 
   <div class="content-row">
 
     <div class="sidebar-column">
-      
       <aside class="sidebar">
         <img src="https://placehold.co/300x300/1a1614/d7b33d?text=Profile"
-          class="profile-img" onclick="openTab('home',document.querySelector('.nav-btn'))" style="cursor:pointer;" alt="더미 프로필">
+          class="profile-img" onclick="openTab('home',document.querySelector('.nav-btn'))" style="cursor:pointer;" alt="프로필">
         <h1 class="char-name">사이트 이름</h1>
-        <p class="sidebar-sub">★ 사이드바 첫째 줄을 여기에 입력하세요.</p>
-        <p class="sidebar-sub">★ 사이드바 둘째 줄을 여기에 입력하세요.</p>
+        <p class="sidebar-sub">소개글 첫 번째 줄</p>
+        <p class="sidebar-sub">소개글 두 번째 줄</p>
         <p class="sidebar-sub sidebar-sub--spaced">since 2026.00.00</p>
         
         <div class="main-phase-selector" style="margin: 15px 0; padding: 10px; background: rgba(0,0,0,0.4); border: 1px solid rgba(215,179,61,0.3); border-radius: 8px; text-align: center;">
@@ -56,15 +54,16 @@
             </select>
         </div>
         
-        <a href="#" class="link-btn" target="_blank">더미 링크</a>
+        <a href="#" class="link-btn" target="_blank">외부 링크</a>
         
         <div class="music-player">
           <iframe class="youtube-frame"
             src="https://www.youtube.com/embed/dQw4w9WgXcQ?loop=1&playlist=dQw4w9WgXcQ"
-            title="더미 BGM" frameborder="0"
+            title="배경음악" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          <div class="music-title">BGM 제목을 여기에 입력하세요</div><div class="music-artist">BGM</div>
+          <div class="music-title">음악 제목</div>
+          <div class="music-artist">BGM</div>
         </div>
       </aside>
 
@@ -74,27 +73,26 @@
       </div>
 
       <div class="character-section">
-        <img src="https://placehold.co/150x150/2a2520/d7b33d?text=Char+1" class="character-img" alt="캐릭터1" onclick="openTab('char-ho1')">
-        <img src="https://placehold.co/150x150/2a2520/cccccc?text=Char+2" class="character-img" alt="캐릭터2" onclick="openTab('char-ho2')">
-        <img src="https://placehold.co/150x150/2a2520/4caf50?text=Char+3" class="character-img" alt="캐릭터3" onclick="openTab('char-ho3')">
-        <img src="https://placehold.co/150x150/2a2520/4c8bf5?text=Char+4" class="character-img" alt="캐릭터4" onclick="openTab('char-ho4')">
+        <img src="https://placehold.co/150x150/2a2520/d7b33d?text=C1" class="character-img" alt="캐릭터1" onclick="openTab('char-ho1')">
+        <img src="https://placehold.co/150x150/2a2520/cccccc?text=C2" class="character-img" alt="캐릭터2" onclick="openTab('char-ho2')">
+        <img src="https://placehold.co/150x150/2a2520/4caf50?text=C3" class="character-img" alt="캐릭터3" onclick="openTab('char-ho3')">
+        <img src="https://placehold.co/150x150/2a2520/4c8bf5?text=C4" class="character-img" alt="캐릭터4" onclick="openTab('char-ho4')">
       </div>
 
       <div class="calendar" id="calendar"></div>
     </div>
 
     <main class="main-content">
-      
       <nav class="nav-tabs">
-        <button class="nav-btn active" onclick="openTab('home',this)">Home</button>
-        <button class="nav-btn" onclick="openTab('Backup',this)">Log</button>
-        <button class="nav-btn" onclick="openTab('Gallery',this)">Gallery</button>
-        <button class="nav-btn" onclick="openTab('NPC',this)">NPC</button>
-        <button class="nav-btn" onclick="openTab('relations',this)">Relation</button>
-        <button class="nav-btn" onclick="openTab('Shop',this);updateShopMoneyDisplay();">Shop</button>
-        <button class="nav-btn" onclick="openTab('MiniGames',this);updateShopMoneyDisplay();">Minigame</button>
-        <button class="nav-btn" onclick="openTab('Sparring',this)">Battle</button>
-        <button class="nav-btn" onclick="openTab('MyRoom',this);if(typeof MyRoomSys!=='undefined')MyRoomSys.loadVisitList();">Myroom</button>
+        <button class="nav-btn active" onclick="openTab('home',this)">대문</button>
+        <button class="nav-btn" onclick="openTab('Backup',this)">기록</button>
+        <button class="nav-btn" onclick="openTab('Gallery',this)">화첩</button>
+        <button class="nav-btn" onclick="openTab('NPC',this)">인물</button>
+        <button class="nav-btn" onclick="openTab('relations',this)">관계도</button>
+        <button class="nav-btn" onclick="openTab('Shop',this);updateShopMoneyDisplay();">상점</button>
+        <button class="nav-btn" onclick="openTab('MiniGames',this);updateShopMoneyDisplay();">노름판</button>
+        <button class="nav-btn" onclick="openTab('Sparring',this)">대련장</button>
+        <button class="nav-btn" onclick="openTab('MyRoom',this);if(typeof MyRoomSys!=='undefined')MyRoomSys.loadVisitList();">숙소</button>
       </nav>
 
       <section id="home" class="content-card active">
@@ -108,10 +106,10 @@
           <button class="home-arrow prev" onclick="moveHomeSlide(-1)">&#10094;</button>
           <div class="home-slider-viewport">
             <div class="home-slider-track" id="home-track">
-              <div class="home-slide"><h2>★ 1부 제목을 여기에 입력하세요</h2><img src="https://placehold.co/600x300/1a1614/d7b33d?text=Banner+1" alt="1부"></div>
-              <div class="home-slide"><h2>★ 2부 제목을 여기에 입력하세요</h2><img src="https://placehold.co/600x300/1a1614/cccccc?text=Banner+2" alt="2부"></div>
-              <div class="home-slide"><h2>★ 3부 제목을 여기에 입력하세요</h2><img src="https://placehold.co/600x300/1a1614/4caf50?text=Banner+3" alt="3부"></div>
-              <div class="home-slide"><h2>★ 4부 제목을 여기에 입력하세요</h2><img src="https://placehold.co/600x300/1a1614/4c8bf5?text=Banner+4" alt="4부"></div>
+              <div class="home-slide"><h2>1부 대문</h2></div>
+              <div class="home-slide"><h2>2부 대문</h2></div>
+              <div class="home-slide"><h2>3부 대문</h2></div>
+              <div class="home-slide"><h2>4부 대문</h2></div>
             </div>
           </div>
           <button class="home-arrow next" onclick="moveHomeSlide(1)">&#10095;</button>
@@ -128,13 +126,7 @@
           <button class="phase-btn" onclick="changePhase(this,3)">4부</button>
         </div>
         <div class="phase-content-wrapper">
-          <div class="phase-slide active">
-            <h2>로그 백업 (1부)</h2>
-            <details>
-              <summary>1부 Chapter 1</summary>
-              <div class="details-content">[main] 캐릭터1 : 여기에 실제 로그를 붙여넣으세요.<br>[main] GM : [main] 형식으로 작성하면 색상이 자동 적용됩니다.</div>
-            </details>
-          </div>
+          <div class="phase-slide active"><h2>로그 백업 (1부)</h2><details><summary>1부 Chapter 1</summary><div class="details-content">로그 내용</div></details></div>
           <div class="phase-slide"><h2>로그 백업 (2부)</h2></div>
           <div class="phase-slide"><h2>로그 백업 (3부)</h2></div>
           <div class="phase-slide"><h2>로그 백업 (4부)</h2></div>
@@ -142,7 +134,7 @@
       </section>
 
       <section id="Gallery" class="content-card">
-        <h2 style="text-align:center;border:none;margin-bottom:10px;">★ 갤러리 제목을 여기에 입력하세요</h2>
+        <h2 style="text-align:center;border:none;margin-bottom:10px;">기록 보관소</h2>
         <div class="phase-tabs">
           <button class="phase-btn active" onclick="changePhase(this,0);loadGalleryData(1);">1부</button>
           <button class="phase-btn" onclick="changePhase(this,1);loadGalleryData(1);">2부</button>
@@ -150,7 +142,7 @@
           <button class="phase-btn" onclick="changePhase(this,3);loadGalleryData(1);">4부</button>
         </div>
         <div class="gallery-upload-form" id="gallery-main-form">
-          <h3 style="color:var(--accent-color);margin-bottom:15px;font-size:1.1rem;font-family:'Nanum Myeongjo',serif;">새 기록 남기기</h3>
+          <h3 style="color:var(--accent-color);margin-bottom:15px;font-size:1.1rem;">새 기록 남기기</h3>
           <div style="display:flex;gap:15px;"><div style="flex:1;">
             <textarea id="gal-content" class="modal-inline-textarea" style="height:80px;margin-bottom:10px;" placeholder="기록에 대한 설명을 적어주세요..."></textarea>
             <div style="display:flex;gap:10px;align-items:center;">
@@ -160,30 +152,6 @@
           </div></div>
         </div>
         <div id="gallery-list-container"><p style="text-align:center;color:#777;">데이터를 불러오는 중...</p></div>
-      </section>
-
-      <section id="NPC" class="content-card">
-        <div class="phase-tabs">
-          <button class="phase-btn active" onclick="changePhase(this,0)">1부</button>
-          <button class="phase-btn" onclick="changePhase(this,1)">2부</button>
-          <button class="phase-btn" onclick="changePhase(this,2)">3부</button>
-          <button class="phase-btn" onclick="changePhase(this,3)">4부</button>
-        </div>
-        <div class="phase-content-wrapper">
-          <div class="phase-slide active">
-            <h2>NPC (1부)</h2>
-            <div class="relation-grid">
-              <div class="relation-card" data-relation="적">
-                <img src="https://placehold.co/100x100/1a1614/d7b33d?text=NPC" class="relation-avatar" onclick="openLightbox(this.src)">
-                <div class="relation-name">1부 적</div>
-                <div class="relation-desc">NPC 설명을 여기에 입력하세요</div>
-              </div>
-            </div>
-          </div>
-          <div class="phase-slide"><h2>NPC (2부)</h2></div>
-          <div class="phase-slide"><h2>NPC (3부)</h2></div>
-          <div class="phase-slide"><h2>NPC (4부)</h2></div>
-        </div>
       </section>
 
       <section id="relations" class="content-card">
@@ -197,8 +165,6 @@
         <div class="map-toolbar" style="display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,0.4);padding:15px;border-radius:8px;margin-bottom:25px;border:1px solid rgba(215,179,61,0.2);">
           <div style="display:flex;gap:10px;">
             <button id="btn-toggle-edit" class="link-btn" onclick="toggleMapEdit()" style="margin-top:0;">편집 모드 켜기</button>
-            <button id="btn-add-edge" class="link-btn" style="display:none;color:#4caf50;border-color:#4caf50;margin-top:0;" onclick="openEdgeEditor(-1)">새 관계선 추가</button>
-            <button id="btn-add-node" class="link-btn" style="display:none;color:#d7b33d;border-color:#d7b33d;margin-top:0;" onclick="openNodeEditor(null)">새 인물 추가</button>
           </div>
           <button id="btn-save-map" class="eternal-btn" style="padding:8px 20px;font-size:0.9rem;" onclick="saveMapToDB()">위치 저장</button>
         </div>
@@ -206,75 +172,16 @@
           <div id="faction-groups-layer" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;"></div>
           <svg class="map-svg-layer" id="map-svg-layer" style="z-index:1;"></svg>
           <div id="static-nodes-layer" style="z-index:10;"></div>
-          <div id="floating-edge-editor" style="display:none;position:absolute;bottom:15px;left:50%;transform:translateX(-50%);background:rgba(20,20,20,0.95);border:2px solid var(--accent-color);padding:15px 20px;border-radius:12px;z-index:2000;box-shadow:0 10px 30px rgba(0,0,0,0.8);width:95%;max-width:600px;color:#fff;flex-direction:column;gap:10px;">
-            <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #444;padding-bottom:10px;">
-              <h4 style="margin:0;color:var(--accent-color);">선 연결 및 색상 수정</h4>
-              <button onclick="closeEdgeEditor()" style="background:none;border:none;color:#aaa;cursor:pointer;font-size:1.4rem;">&times;</button>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">
-              <select id="edge-from" class="auth-input" style="padding:5px;margin:0;width:100px;" onchange="previewEdge()"></select>
-              <span>&#8594;</span>
-              <select id="edge-to" class="auth-input" style="padding:5px;margin:0;width:100px;" onchange="previewEdge()"></select>
-              <input type="text" id="edge-label" class="auth-input" style="padding:5px;margin:0;width:120px;" placeholder="관계 이름" oninput="previewEdge()">
-              <select id="edge-dash" class="auth-input" style="padding:5px;margin:0;width:80px;" onchange="previewEdge()">
-                <option value="false">실선</option><option value="true">점선</option>
-              </select>
-            </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;">
-              <div style="display:flex;gap:8px;align-items:center;">
-                <span style="font-size:0.85rem;color:#aaa;">색상:</span>
-                <button type="button" onclick="previewEdgeColor('#d7b33d')" style="background:#d7b33d;width:26px;height:26px;border:1px solid #000;cursor:pointer;border-radius:4px;"></button>
-                <button type="button" onclick="previewEdgeColor('#ff4d4d')" style="background:#ff4d4d;width:26px;height:26px;border:1px solid #000;cursor:pointer;border-radius:4px;"></button>
-                <button type="button" onclick="previewEdgeColor('#4caf50')" style="background:#4caf50;width:26px;height:26px;border:1px solid #000;cursor:pointer;border-radius:4px;"></button>
-                <button type="button" onclick="previewEdgeColor('#4c8bf5')" style="background:#4c8bf5;width:26px;height:26px;border:1px solid #000;cursor:pointer;border-radius:4px;"></button>
-                <button type="button" onclick="previewEdgeColor('#aaaaaa')" style="background:#aaaaaa;width:26px;height:26px;border:1px solid #000;cursor:pointer;border-radius:4px;"></button>
-                <input type="color" id="edge-color" style="width:30px;height:30px;border:none;background:transparent;cursor:pointer;" oninput="previewEdgeColor(this.value)">
-              </div>
-              <input type="hidden" id="edge-idx">
-              <button id="btn-delete-edge" onclick="deleteEdge()" style="background:#8b0000;color:#fff;border:none;padding:6px 12px;border-radius:4px;cursor:pointer;">이 선 삭제</button>
-            </div>
-          </div>
         </div>
       </section>
 
       <section id="Shop" class="content-card">
         <h2 style="text-align:center;border:none;margin-bottom:10px;">만물상</h2>
-        
         <div style="text-align:right;margin-bottom:15px;background:rgba(0,0,0,0.3);padding:10px 20px;border-radius:8px;border:1px dashed var(--accent-color);display:inline-block;float:right;">
           <span style="color:#aaa;">내 소지금:</span>
           <strong id="shop-my-money" style="color:var(--accent-color);font-size:1.2rem;margin-left:10px;">조회 중...</strong>
         </div>
         <div style="clear:both;"></div>
-        
-        <div class="rpg-stock-exchange">
-          <div class="exchange-header">
-            <div class="title-group"><h3 class="exchange-title">★ 증권 거래소 이름</h3></div>
-            <div class="time-notice-badge"><span class="pulse-icon"></span>실시간 차트 동기화 중</div>
-          </div>
-          <div class="exchange-holdings">
-            <span class="holdings-label">내 보유 증서</span>
-            <span id="stock-holdings-display" class="holdings-value">종목A 0주 / 종목B 0주</span>
-          </div>
-          <div class="exchange-graph-wrapper"><canvas id="stockChart"></canvas></div>
-          <div class="exchange-trading-board">
-            <div class="trade-card">
-              <div class="corp-header"><span class="corp-name">★ 종목A 이름</span><span class="corp-sub">약칭</span></div>
-              <div class="corp-price-box"><span class="price-label">현재가</span><div class="corp-price" id="price-samsung">조회 중...</div></div>
-              <div class="trade-actions">
-                <button class="trade-btn btn-buy" onclick="tradeStock('samsung','buy')">매 수</button>
-                <button class="trade-btn btn-sell" onclick="tradeStock('samsung','sell')">매 도</button>
-              </div>
-            </div>
-            <div class="trade-card">
-              <div class="corp-header"><span class="corp-name">마바사무역</span><span class="corp-sub">B-기업</span></div>
-              <div class="corp-price-box"><span class="price-label">현재가</span><div class="corp-price" id="price-sk">조회 중...</div></div>
-              <div class="trade-actions">
-                <button class="trade-btn btn-buy" onclick="tradeStock('sk','buy')">매 수</button>
-                <button class="trade-btn btn-sell" onclick="tradeStock('sk','sell')">매 도</button>
-              </div>
-            </div>
-          </div>
-        </div>
         
         <div class="phase-tabs" id="shop-tabs" style="margin-bottom:20px;">
           <button class="phase-btn active" onclick="changeShopTab('general')">일반 물품</button>
@@ -285,7 +192,6 @@
 
       <section id="MiniGames" class="content-card">
         <h2 style="text-align:center;border:none;margin-bottom:10px;">유흥장</h2>
-        
         <div style="text-align:right;margin-bottom:15px;background:rgba(0,0,0,0.3);padding:10px 20px;border-radius:8px;border:1px dashed var(--accent-color);display:inline-block;float:right;">
           <span style="color:#aaa;">내 소지금:</span>
           <strong id="minigame-my-money" style="color:var(--accent-color);font-size:1.2rem;margin-left:10px;">조회 중...</strong>
@@ -325,230 +231,28 @@
           </div>
           <div class="mg-slide" style="text-align:center;">
             <h3 style="color:var(--accent-color);margin-bottom:15px;">사냥터</h3>
-            <p style="color:#aaa;margin-bottom:15px;">15초 동안 나타나는 사냥감을 맞추세요. (사슴: 10G / 곰: 50G)</p>
+            <p style="color:#aaa;margin-bottom:15px;">15초 동안 나타나는 사냥감을 맞추세요.</p>
             <button id="btn-start-hunt" class="auth-btn" style="width:200px;margin-bottom:20px;" onclick="startHuntingGame()">사냥 시작하기</button>
             <div class="hunt-ui"><div>남은 시간: <span id="hunt-timer">15</span>초</div><div>확보 상금: <span id="hunt-score">0</span> G</div></div>
             <div class="hunt-area" id="hunt-area"></div>
           </div>
-          
-          <div class="mg-slide" id="slide-fishing">
-            <style>
-                #fishing-minigame {
-                    text-align: center; background-color: #1e1e1e;
-                    border: 2px solid var(--accent-color, #4A90E2); border-radius: 10px;
-                    padding: 20px; max-width: 350px; margin: 20px auto;
-                    user-select: none; color: #fff; position: relative;
-                }
-                
-                /* 낚시터 선택 메뉴 */
-                #fishing-menu { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
-                .spot-btn {
-                    background-size: cover; background-position: center;
-                    color: white; border: 2px solid #fff; border-radius: 8px;
-                    padding: 20px 10px; font-size: 18px; font-weight: bold;
-                    cursor: pointer; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-                    transition: transform 0.2s;
-                }
-                .spot-btn:hover { transform: scale(1.02); }
-                
-                /* 더미 이미지로 교체된 낚시터 버튼 */
-                #btn-spot-easy { background-image: url('https://placehold.co/300x100/4da6ff/ffffff?text=Lake'); background-color: #4da6ff; }
-                #btn-spot-hard { background-image: url('https://placehold.co/300x100/1a0033/ffffff?text=Ocean'); background-color: #1a0033; }
-
-                /* 게임 플레이 영역 */
-                #fishing-play { display: none; }
-                .progress-container {
-                    width: 100%; height: 25px; background-color: #333;
-                    border-radius: 12px; overflow: hidden; margin-bottom: 20px; border: 2px solid #555;
-                }
-                #progress-bar { width: 20%; height: 100%; background-color: #FF9800; transition: width 0.1s linear; }
-                
-                .water-area {
-                    width: 80px; height: 300px; 
-                    background-color: #2c3e50; border: 3px solid #555; border-radius: 8px;
-                    margin: 0 auto 20px auto; position: relative; overflow: hidden;
-                    background-size: cover; background-position: center;
-                }
-
-                #fish-zone {
-                    width: 100%; 
-                    height: 35px; 
-                    position: absolute; bottom: 120px;
-                    z-index: 10; 
-                    /* 물고기 아이콘 더미 이미지 */
-                    background-image: url('https://placehold.co/80x35/transparent/ffffff?text=Fish'); 
-                    background-size: contain; background-repeat: no-repeat; background-position: center;
-                }
-
-                #player-bar {
-                    width: 100%; 
-                    background-color: rgba(76, 175, 80, 0.3); 
-                    border: 3px solid #4CAF50; 
-                    position: absolute; bottom: 0;
-                    z-index: 5; 
-                    border-radius: 8px; 
-                    box-shadow: inset 0 0 10px rgba(76, 175, 80, 0.5);
-                    transition: border-color 0.2s, background-color 0.2s;
-                }
-
-                .catch-success { background-color: rgba(100, 255, 100, 0.4) !important; border-color: #4CAF50 !important; }
-                .catch-fail    { background-color: rgba(255, 100, 100, 0.2) !important; border-color: #F44336 !important; }
-
-                #fishing-action-btn {
-                    background-color: var(--accent-color, #4A90E2); color: white; border: none;
-                    padding: 15px 30px; border-radius: 8px; font-size: 18px; font-weight: bold;
-                    cursor: pointer; touch-action: manipulation; width: 100%;
-                }
-                #fishing-action-btn:active { background-color: #357ABD; }
-                #fishing-action-btn:disabled { background-color: #555; cursor: not-allowed; }
-            </style>
-
-            <div id="fishing-minigame">
-                <h3>🎣 낚시 터</h3>
-                <p id="fishing-message">원하는 낚시터를 선택하세요.</p>
-                
-                <div id="fishing-menu">
-                    <button id="btn-spot-easy" class="spot-btn" onclick="prepareFishing('easy')">
-                        잔잔한 호수<br><span style="font-size:0.8em; font-weight:normal;">(난이도: 쉬움 / 보상: 적음)</span>
-                    </button>
-                    <button id="btn-spot-hard" class="spot-btn" onclick="prepareFishing('hard')">
-                        거친 바다<br><span style="font-size:0.8em; font-weight:normal;">(난이도: 어려움 / 보상: 많음)</span>
-                    </button>
-                </div>
-
-                <div id="fishing-play">
-                    <div class="progress-container"><div id="progress-bar"></div></div>
-                    <div class="water-area" id="fishing-water-area">
-                        <div id="fish-zone"></div>
-                        <div id="player-bar"></div>
-                    </div>
-                    <button id="fishing-action-btn" 
-                            onmousedown="pressFishingBtn(event)" ontouchstart="pressFishingBtn(event)" 
-                            onmouseup="releaseFishingBtn(event)" ontouchend="releaseFishingBtn(event)" 
-                            onmouseleave="releaseFishingBtn(event)">
-                        누르기 (Hold)
-                    </button>
-                </div>
-            </div>
+          <div class="mg-slide" style="text-align:center;">
+            <h3 style="color:var(--accent-color);margin-bottom:15px;">낚시터</h3>
+            <button id="btn-start-fishing" class="auth-btn" style="width:200px;margin-bottom:20px;" onclick="prepareFishing('easy')">낚시 시작하기</button>
           </div>
-        </div>
-      </section>
-
-      <section id="Sparring" class="content-card">
-        <style>
-          .sparring-modern-header { text-align: center; margin-bottom: 30px; }
-          .sparring-modern-title { font-size: 1.8rem; font-family: 'Nanum Myeongjo', serif; color: var(--accent-color); letter-spacing: 4px; margin: 0 0 10px 0; }
-          .sparring-modern-subtitle { font-size: 0.95rem; color: #888; letter-spacing: 1px; margin: 0; }
-          
-          /* 도전 신청 박스 (크고 시원하게) */
-          .challenge-box-modern { background: rgba(15, 15, 15, 0.8); border: 1px solid rgba(215, 179, 61, 0.2); padding: 30px; border-radius: 12px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-          .challenge-box-title { color: #fff; font-size: 1.1rem; letter-spacing: 2px; margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 10px; }
-          .combat-select-large { width: 100%; padding: 15px; font-size: 1rem; background: #111; border: 1px solid #444; color: #eee; border-radius: 8px; transition: border-color 0.3s; }
-          .combat-select-large:focus { border-color: var(--accent-color); outline: none; }
-          .btn-challenge-large { width: 100%; padding: 16px; font-size: 1.1rem; font-weight: bold; letter-spacing: 3px; background: linear-gradient(135deg, #d7b33d, #b8952d); color: #111; border: none; border-radius: 8px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; margin-top: 10px; }
-          .btn-challenge-large:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(215, 179, 61, 0.3); }
-
-          /* 리스트 그리드 레이아웃 */
-          .lobby-lists-modern { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-          .lobby-list-col { background: transparent; }
-          .lobby-list-label-modern { font-size: 1rem; color: #aaa; letter-spacing: 2px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
-          .lobby-list-label-modern::before { content: ''; display: block; width: 4px; height: 16px; background: var(--accent-color); }
-
-          /* 리스트 카드 (이모지 배제, 깔끔한 텍스트 위주) */
-          .modern-card { background: #1a1a1a; border: 1px solid #333; padding: 20px; border-radius: 8px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; transition: background 0.3s; }
-          .modern-card:hover { background: #222; border-color: #555; }
-          .modern-card-content { display: flex; flex-direction: column; gap: 6px; }
-          .modern-badge { font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; padding: 3px 8px; border-radius: 4px; width: fit-content; }
-          .badge-incoming { background: rgba(76, 175, 80, 0.1); color: #4caf50; border: 1px solid rgba(76, 175, 80, 0.3); }
-          .badge-waiting { background: rgba(136, 136, 136, 0.1); color: #aaa; border: 1px solid rgba(136, 136, 136, 0.3); }
-          .badge-live { background: rgba(255, 77, 77, 0.1); color: #ff4d4d; border: 1px solid rgba(255, 77, 77, 0.3); }
-          
-          .modern-card-title { font-size: 1.1rem; font-weight: bold; color: #fff; }
-          .modern-card-desc { font-size: 0.85rem; color: #777; }
-          .modern-vs { color: var(--accent-color); font-size: 0.8rem; margin: 0 5px; }
-
-          .modern-action-btn { padding: 10px 20px; font-size: 0.9rem; font-weight: bold; letter-spacing: 1px; border-radius: 6px; cursor: pointer; border: none; transition: 0.2s; }
-          .btn-solid-accept { background: #4caf50; color: #fff; }
-          .btn-solid-cancel { background: #333; color: #aaa; border: 1px solid #555; }
-          .btn-solid-spectate { background: transparent; color: var(--accent-color); border: 1px solid var(--accent-color); }
-          .modern-action-btn:hover { opacity: 0.8; }
-
-          .modern-empty-card { text-align: center; padding: 40px 20px; background: rgba(0,0,0,0.2); border: 1px dashed #444; border-radius: 8px; color: #666; letter-spacing: 1px; }
-        </style>
-
-        <div class="phase-tabs" style="margin-bottom:30px;">
-          <button class="phase-btn combat-mode-btn active" data-mode="solo" onclick="CombatSys.switchMode('solo')" style="font-size: 1.1rem; padding: 12px;">개인전</button>
-          <button class="phase-btn combat-mode-btn" data-mode="team" onclick="CombatSys.switchMode('team')" style="font-size: 1.1rem; padding: 12px;">단체전</button>
-        </div>
-
-        <div id="lobby-solo">
-          <div class="sparring-modern-header">
-            <h3 class="sparring-modern-title">개인전</h3>
-            <p class="sparring-modern-subtitle">대련 상대를 선택하고, 겨루세요.</p>
-          </div>
-
-          <div class="challenge-box-modern">
-            <div class="challenge-box-title">새로운 대련 신청</div>
-            <div style="display: flex; flex-direction: column; gap: 15px;">
-              <select id="spar-target" class="combat-select-large"><option value="">대련 상대를 선택하세요</option></select>
-              
-              <div style="display: flex; gap: 15px;">
-                <select id="spar-my-phase" class="combat-select-large" style="flex: 1;">
-                  <option value="">내 능력치: 기본</option>
-                  <option value="0">1부 능력치 사용</option>
-                  <option value="1">2부 능력치 사용</option>
-                  <option value="2">3부 능력치 사용</option>
-                  <option value="3">4부 능력치 사용</option>
-                </select>
-                <select id="spar-target-phase" class="combat-select-large" style="flex: 1;">
-                  <option value="">상대 능력치: 기본</option>
-                  <option value="0">1부 능력치 사용</option>
-                  <option value="1">2부 능력치 사용</option>
-                  <option value="2">3부 능력치 사용</option>
-                  <option value="3">4부 능력치 사용</option>
-                </select>
-              </div>
-              <button class="btn-challenge-large" onclick="prepareAndChallenge()">대련</button>
-            </div>
-          </div>
-
-          <div class="lobby-lists-modern">
-            <div class="lobby-list-col">
-              <div class="lobby-list-label-modern">요청 내역</div>
-              <div id="spar-incoming-requests"></div>
-            </div>
-            <div class="lobby-list-col">
-              <div class="lobby-list-label-modern">진행 중인 대련</div>
-              <div id="spar-ongoing-list"></div>
-            </div>
-          </div>
-        </div>
-
-        <div id="lobby-team" style="display:none;">
-          <div class="sparring-modern-header">
-            <h3 class="sparring-modern-title">단체전</h3>
-            <p class="sparring-modern-subtitle">민첩 대항으로 순서가 정해집니다.</p>
-          </div>
-          <div id="team-lobby-area"></div>
         </div>
       </section>
 
       <section id="MyRoom" class="content-card">
-        <h2 style="text-align:center;border:none;margin-bottom:10px;">기록자의 방</h2>
+        <h2 style="text-align:center;border:none;margin-bottom:10px;">선인의 방</h2>
         <div class="phase-tabs" id="myroom-tabs">
           <button class="phase-btn active" onclick="if(typeof MyRoomSys!=='undefined')MyRoomSys.loadMyRoom()">내 방 가기</button>
-          <button class="phase-btn" onclick="if(typeof MyRoomSys!=='undefined')MyRoomSys.loadVisitList()">이웃 방문</button>
+          <button class="phase-btn" onclick="if(typeof MyRoomSys!=='undefined')MyRoomSys.loadVisitList()">다른 숙소 방문</button>
         </div>
-        
-        <div id="room-visit-list" style="display:none;">
-          <p style="text-align:center;color:#aaa;margin-bottom:20px;">다른 인물들의 방을 구경해보세요.</p>
-          <div id="room-neighbors" class="relation-grid"></div>
-        </div>
-        
+        <div id="room-visit-list" style="display:none;"></div>
         <div id="room-canvas-area">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
             <h3 id="room-owner-name" style="color:var(--accent-color);margin:0;">누군가의 방</h3>
-            <button id="btn-room-back" class="auth-btn" style="width:auto;padding:5px 15px;margin:0;background:#555;display:none;" onclick="if(typeof MyRoomSys!=='undefined')MyRoomSys.loadVisitList()">목록으로</button>
             <button id="btn-room-edit" class="auth-btn" style="width:auto;padding:5px 15px;margin:0;display:none;" onclick="if(typeof MyRoomSys!=='undefined')MyRoomSys.toggleEditMode()">꾸미기</button>
             <button id="btn-room-save" class="auth-btn" style="width:auto;padding:5px 15px;margin:0;display:none;background:#4caf50;" onclick="if(typeof MyRoomSys!=='undefined')MyRoomSys.saveRoom()">저장</button>
           </div>
@@ -566,193 +270,29 @@
 
     </main>
   </div>
-  <footer class="site-footer">&#169; 2026 영원록. All rights reserved.  </footer>
+  <footer class="site-footer">&#169; 2026 TRPG 관리자. All rights reserved.</footer>
 </div>
 
-<style>
-  #bgm-widget {
-      position: fixed;
-      bottom: 100px;
-      right: 20px;
-      z-index: 9999;
-      display: none; /* BGM이 있는 경우에만 JS로 활성화됨 */
-  }
-  #btn-toggle-bgm {
-      background-color: rgba(30, 30, 30, 0.8);
-      color: #fff;
-      border: 1px solid var(--accent-color, #4A90E2);
-      padding: 10px 20px;
-      border-radius: 20px;
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: bold;
-      cursor: pointer;
-      backdrop-filter: blur(5px);
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-  }
-  #btn-toggle-bgm:hover {
-      background-color: var(--accent-color, #4A90E2);
-  }
-  #btn-toggle-bgm.playing {
-      background-color: #e5c56d;
-      border-color: #e5c56d;
-      animation: pulse 2s infinite;
-  }
-  @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4); }
-      70% { box-shadow: 0 0 0 10px rgba(76, 175, 80, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
-  }
-</style>
-<div id="bgm-widget">
-  <button id="btn-toggle-bgm" onclick="toggleCharacterBGM()">음악 켜기</button>
+<div id="bgm-widget" style="position: fixed; bottom: 100px; right: 20px; z-index: 9999; display: none;">
+  <button id="btn-toggle-bgm" onclick="toggleCharacterBGM()" style="background-color: rgba(30, 30, 30, 0.8); color: #fff; border: 1px solid #d7b33d; padding: 10px 20px; border-radius: 20px; font-weight: bold; cursor: pointer;">음악 켜기</button>
   <div id="bgm-player-container" style="position: absolute; width: 0; height: 0; overflow: hidden; opacity: 0;"></div>
-</div>
-<div id="sparring-arena" class="combat-fullscreen-modal" style="display:none;">
-  <div class="combat-modal-content">
-    <div class="combat-header">
-      <h2 style="color:var(--accent-color);margin:0;text-shadow:0 2px 4px rgba(0,0,0,0.8);">대련 진행 중</h2>
-      <button class="auth-btn btn-flee" onclick="CombatSys.exitArena()">도망치기</button>
-    </div>
-    <div class="arena-spectators-box">
-      <div class="spectator-label">실시간 관전자 (<span id="spectator-count">0</span>명)</div>
-      <div id="spectator-list" class="spectator-tags"></div>
-    </div>
-    
-    <div id="team-arena-stage" class="team-arena-stage" style="display:none;">
-      <div id="team-side-a" class="team-side"></div>
-      <div class="team-vs-divider"><span>VS</span><div style="width:1px;height:60px;background:rgba(215,179,61,0.3);"></div></div>
-      <div id="team-side-b" class="team-side"></div>
-    </div>
-    
-    <div id="solo-arena-stage" class="combat-middle-stage">
-      <div class="betting-panel p1-bet-panel">
-        <div class="bet-title">P1 베팅</div>
-        <div class="bet-action">
-          <div class="my-money">소지금: <strong id="bet-my-money-p1" style="color:var(--accent-color);">-</strong></div>
-          <div style="display:flex;gap:5px;margin-bottom:10px;">
-            <input type="number" id="bet-amt-p1" class="auth-input bet-input" placeholder="G" min="1">
-            <button class="auth-btn btn-bet" onclick="CombatSys.bet('p1')">걸기</button>
-          </div>
-        </div>
-        <div class="bettor-list-title">베팅 현황</div>
-        <div id="p1-bettors" class="bettor-list"></div>
-      </div>
-      
-      <div class="combat-char p1-side">
-        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-          <div class="combatant-card" data-id="p1" style="width:160px;">
-            <img id="cb-p1-img" src="https://placehold.co/160x160/1a1817/d7b33d?text=P1" class="combatant-img" onerror="this.src='https://placehold.co/160x160/1a1817/d7b33d?text=P1'">
-            <div class="combatant-overlay">
-              <div id="cb-p1-name" class="combatant-name">P1</div>
-            </div>
-          </div>
-          <div style="width:160px;background:rgba(10,10,10,0.75);border:1px solid rgba(215,179,61,0.2);border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;gap:6px;">
-            <div style="display:flex;justify-content:space-between;align-items:center;">
-              <span style="font-size:11px;color:#e88;">HP</span>
-              <span id="cb-p1-hp-txt" style="font-size:11px;color:#e88;font-weight:bold;">- / -</span>
-            </div>
-            <div style="height:7px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden;">
-              <div id="cb-p1-hp" style="height:100%;width:100%;background:linear-gradient(90deg,#c0392b,#e74c3c);border-radius:4px;transition:width 0.4s ease;"></div>
-            </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;">
-              <span style="font-size:11px;color:#7ab;">MP</span>
-              <span id="cb-p1-mp-txt" style="font-size:11px;color:#7ab;font-weight:bold;">- / -</span>
-            </div>
-            <div style="height:5px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden;">
-              <div id="cb-p1-mp" style="height:100%;width:100%;background:#4c8bf5;border-radius:4px;transition:width 0.4s ease;"></div>
-            </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;">
-              <span style="font-size:11px;color:#d7b33d;">법력</span>
-              <span id="cb-p1-bp-txt" style="font-size:11px;color:#d7b33d;font-weight:bold;">- / -</span>
-            </div>
-            <div style="height:5px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden;">
-              <div id="cb-p1-bp" style="height:100%;width:100%;background:#d7b33d;border-radius:4px;transition:width 0.4s ease;"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="combat-char p2-side">
-        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-          <div class="combatant-card" data-id="p2" style="width:160px;">
-            <img id="cb-p2-img" src="https://placehold.co/160x160/1a1817/4c8bf5?text=P2" class="combatant-img" onerror="this.src='https://placehold.co/160x160/1a1817/4c8bf5?text=P2'">
-            <div class="combatant-overlay">
-              <div id="cb-p2-name" class="combatant-name">P2</div>
-            </div>
-          </div>
-          <div style="width:160px;background:rgba(10,10,10,0.75);border:1px solid rgba(76,139,245,0.2);border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;gap:6px;">
-            <div style="display:flex;justify-content:space-between;align-items:center;">
-              <span style="font-size:11px;color:#e88;">HP</span>
-              <span id="cb-p2-hp-txt" style="font-size:11px;color:#e88;font-weight:bold;">- / -</span>
-            </div>
-            <div style="height:7px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden;">
-              <div id="cb-p2-hp" style="height:100%;width:100%;background:linear-gradient(90deg,#c0392b,#e74c3c);border-radius:4px;transition:width 0.4s ease;"></div>
-            </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;">
-              <span style="font-size:11px;color:#7ab;">MP</span>
-              <span id="cb-p2-mp-txt" style="font-size:11px;color:#7ab;font-weight:bold;">- / -</span>
-            </div>
-            <div style="height:5px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden;">
-              <div id="cb-p2-mp" style="height:100%;width:100%;background:#4c8bf5;border-radius:4px;transition:width 0.4s ease;"></div>
-            </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;">
-              <span style="font-size:11px;color:#d7b33d;">법력</span>
-              <span id="cb-p2-bp-txt" style="font-size:11px;color:#d7b33d;font-weight:bold;">- / -</span>
-            </div>
-            <div style="height:5px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden;">
-              <div id="cb-p2-bp" style="height:100%;width:100%;background:#d7b33d;border-radius:4px;transition:width 0.4s ease;"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="betting-panel p2-bet-panel">
-        <div class="bet-title" style="color:var(--safe);">P2 베팅</div>
-        <div class="bet-action">
-          <div class="my-money">소지금: <strong id="bet-my-money-p2" style="color:var(--safe);">-</strong></div>
-          <div style="display:flex;gap:5px;margin-bottom:10px;">
-            <input type="number" id="bet-amt-p2" class="auth-input bet-input" placeholder="G" min="1">
-            <button class="auth-btn btn-bet btn-bet-safe" onclick="CombatSys.bet('p2')">걸기</button>
-          </div>
-        </div>
-        <div class="bettor-list-title" style="color:var(--safe);">베팅 현황</div>
-        <div id="p2-bettors" class="bettor-list"></div>
-      </div>
-    </div>
-    
-    <div class="combat-bottom-stage" style="grid-template-columns:1fr 440px;">
-      <div id="combat-log" class="enhanced-log"></div>
-      <div class="action-panel-container" style="padding:22px 24px;">
-        <div class="action-title">조작 패널</div>
-        <div id="combat-actions" class="grid-actions" style="display:block;width:100%;"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="image-lightbox" class="lightbox-overlay" onclick="closeLightbox()">
-  <span class="lightbox-close">&times;</span>
-  <img id="lightbox-img" class="lightbox-content" alt="확대 이미지">
 </div>
 
 <div id="auth-modal" class="auth-overlay">
   <div class="auth-box">
     <span class="auth-close" onclick="closeModal('auth-modal')">&times;</span>
-    <h3 style="color:var(--accent-color);text-align:center;margin-bottom:20px;">관리자 접속</h3>
+    <h3 style="color:var(--accent-color);text-align:center;margin-bottom:20px;">접속</h3>
     <input type="email" id="auth-email" class="auth-input" placeholder="이메일">
     <input type="password" id="auth-password" class="auth-input" placeholder="비밀번호">
     <button class="auth-btn" id="do-login-btn">로그인</button>
-    <button class="auth-btn signup" id="do-signup-btn" style="margin-top:10px;">새로 가입하기</button>
   </div>
 </div>
 
 <div id="edit-modal" class="auth-overlay">
-  <div class="auth-box" style="width:480px;padding:35px;border:1px solid var(--accent-color);background-image:url('https://www.transparenttextures.com/patterns/p6-dark.png');">
+  <div class="auth-box" style="width:480px;padding:35px;border:1px solid var(--accent-color);background:#1a1817;">
     <span class="auth-close" onclick="closeModal('edit-modal')">&times;</span>
     <h2 id="edit-modal-title" style="text-align:center;color:var(--accent-color);letter-spacing:4px;margin-bottom:25px;">기본 정보 기록</h2>
-    <div class="info-table" style="background:rgba(37,34,33,0.8);padding:20px;border-radius:12px;border:1px solid rgba(215,179,61,0.15);">
+    <div class="info-table" style="background:rgba(0,0,0,0.5);padding:20px;border-radius:12px;border:1px solid rgba(215,179,61,0.15);">
       <input type="hidden" id="current-profile-img">
       <div class="info-row" style="margin-bottom:12px;display:flex;align-items:center;"><span class="info-label" style="width:85px;color:var(--text-sub);font-weight:bold;">프로필 사진</span><input type="file" id="edit-profile-file" accept="image/*" class="modal-inline-input" style="padding-top:3px;font-size:0.85rem;"></div>
       <div class="info-row" style="margin-bottom:12px;display:flex;align-items:center;"><span class="info-label" style="width:85px;color:var(--accent-color);font-weight:bold;">한마디</span><input type="text" id="edit-quote" class="modal-inline-input" placeholder="대사를 입력하세요" style="color:var(--accent-color);"></div>
@@ -760,7 +300,6 @@
       <div class="info-row" style="margin-bottom:12px;display:flex;align-items:center;"><span class="info-label" style="width:85px;color:var(--text-sub);font-weight:bold;">나이</span><input type="text" id="edit-age" class="modal-inline-input"></div>
       <div class="info-row" style="margin-bottom:12px;display:flex;align-items:center;"><span class="info-label" style="width:85px;color:var(--text-sub);font-weight:bold;">거주지</span><input type="text" id="edit-residence" class="modal-inline-input"></div>
       <div class="info-row" style="margin-bottom:12px;display:flex;align-items:center;"><span class="info-label" style="width:85px;color:var(--text-sub);font-weight:bold;">테마 색상</span><input type="color" id="edit-theme-color" style="width:100%;height:35px;border:none;background:transparent;cursor:pointer;"></div>
-      
       <div class="info-row" style="margin-bottom:12px;display:flex;align-items:center;">
         <span class="info-label" style="width:85px;color:var(--text-sub);font-weight:bold;">테마곡</span>
         <input type="text" id="edit-bgm-url" class="modal-inline-input" placeholder="유튜브 링크 (예: https://youtu.be/...)">
@@ -773,7 +312,7 @@
 </div>
 
 <div id="stats-modal" class="auth-overlay">
-  <div class="auth-box" style="width:400px;padding:35px;border:1px solid var(--accent-color);background-image:url('https://www.transparenttextures.com/patterns/p6-dark.png');">
+  <div class="auth-box" style="width:400px;padding:35px;border:1px solid var(--accent-color);background:#1a1817;">
     <span class="auth-close" onclick="closeModal('stats-modal')">&times;</span>
     <h2 id="stats-modal-title" style="text-align:center;color:var(--accent-color);letter-spacing:4px;margin-bottom:25px;">능력치 조정</h2>
     <div id="stats-inputs-container" style="display:grid;grid-template-columns:1fr 1fr;gap:15px;background:rgba(0,0,0,0.5);padding:20px;border-radius:8px;border:1px dashed rgba(215,179,61,0.4);"></div>
@@ -782,70 +321,23 @@
 </div>
 
 <div id="weapon-modal" class="auth-overlay">
-  <div class="auth-box" style="width:480px;padding:35px;border:1px solid rgba(215,179,61,0.3);background:#12100e;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.8);">
-    <span class="auth-close" onclick="closeModal('weapon-modal')" style="color:#888;font-size:24px;">&times;</span>
-    <h2 style="text-align:center;color:var(--accent-color);letter-spacing:4px;margin-bottom:30px;font-family:'Nanum Myeongjo',serif;">무기 및 전투 스탯</h2>
-
-    <div style="background:#0a0908;padding:20px;border-radius:12px;margin-bottom:25px;border:1px solid #1a1816;">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px 25px;">
-        <div>
-          <label style="display:block;color:#aaa;font-size:0.8rem;margin-bottom:6px;">격투 기능치</label>
-          <input type="number" id="edit-brawl-stat" class="auth-input" style="width:100%;margin:0;background:#12100e;border:1px solid #2a2520;color:#ff4d4d;font-weight:bold;font-size:1.1rem;padding:10px;border-radius:6px;" placeholder="25">
-        </div>
-        <div>
-          <label style="display:block;color:#aaa;font-size:0.8rem;margin-bottom:6px;">도검 기능치</label>
-          <input type="number" id="edit-sword-stat" class="auth-input" style="width:100%;margin:0;background:#12100e;border:1px solid #2a2520;color:#fff;font-size:1.1rem;padding:10px;border-radius:6px;" placeholder="25">
-        </div>
-        <div>
-          <label style="display:block;color:#aaa;font-size:0.8rem;margin-bottom:6px;">활 기능치</label>
-          <input type="number" id="edit-bow-stat" class="auth-input" style="width:100%;margin:0;background:#12100e;border:1px solid #2a2520;color:#fff;font-size:1.1rem;padding:10px;border-radius:6px;" placeholder="25">
-        </div>
-        <div>
-          <label style="display:block;color:#aaa;font-size:0.8rem;margin-bottom:6px;">투척 기능치</label>
-          <input type="number" id="edit-throw-stat" class="auth-input" style="width:100%;margin:0;background:#12100e;border:1px solid #2a2520;color:#fff;font-size:1.1rem;padding:10px;border-radius:6px;" placeholder="20">
-        </div>
-        <div>
-          <label style="display:block;color:#aaa;font-size:0.8rem;margin-bottom:6px;">도술 기능치</label>
-          <input type="number" id="edit-magic-stat" class="auth-input" style="width:100%;margin:0;background:#12100e;border:1px solid #2a2520;color:#fff;font-size:1.1rem;padding:10px;border-radius:6px;" placeholder="15">
-        </div>
-        <div>
-          <label style="display:block;color:#aaa;font-size:0.8rem;margin-bottom:6px;">회피</label>
-          <input type="number" id="edit-dodge-stat" class="auth-input" style="width:100%;margin:0;background:#12100e;border:1px solid #2a2520;color:#fff;font-size:1.1rem;padding:10px;border-radius:6px;" placeholder="0">
-        </div>
-        <div>
-          <label style="display:block;color:#aaa;font-size:0.8rem;margin-bottom:6px;">자동차 운전</label>
-          <input type="number" id="edit-drive-stat" class="auth-input" style="width:100%;margin:0;background:#12100e;border:1px solid #2a2520;color:#fff;font-size:1.1rem;padding:10px;border-radius:6px;" placeholder="20">
-        </div>
-        <div>
-          <label style="display:block;color:#aaa;font-size:0.8rem;margin-bottom:6px;">법력</label>
-          <input type="number" id="edit-bp-stat" class="auth-input" style="width:100%;margin:0;background:#12100e;border:1px solid #2a2520;color:#fff;font-size:1.1rem;padding:10px;border-radius:6px;" placeholder="0">
-        </div>
-      </div>
-    </div>
-
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;">
-      <h3 style="font-size:1.1rem;color:var(--accent-color);margin:0;font-family:'Nanum Myeongjo',serif;">보유 무기</h3>
-      <button class="auth-btn" onclick="addWeaponRow()" style="margin:0;width:auto;padding:6px 12px;font-size:0.8rem;background:transparent;border:1px solid #444;color:#aaa;border-radius:6px;transition:0.2s;">+ 무기 추가</button>
-    </div>
-    
+  <div class="auth-box" style="width:480px;padding:35px;border:1px solid rgba(215,179,61,0.3);background:#12100e;border-radius:12px;">
+    <span class="auth-close" onclick="closeModal('weapon-modal')">&times;</span>
+    <h2 style="text-align:center;color:var(--accent-color);letter-spacing:4px;margin-bottom:30px;">무기 및 전투 스탯</h2>
     <div id="weapon-list-container" style="max-height:220px;overflow-y:auto;padding-right:5px;margin-bottom:25px;"></div>
-    
-    <button class="auth-btn" onclick="saveWeaponData()" style="width:100%;padding:14px;background:#1c1a18;color:#ccc;border:1px solid #333;font-weight:bold;font-size:1rem;border-radius:8px;cursor:pointer;transition:all 0.2s;">무기 및 스탯 기록하기</button>
+    <button class="auth-btn" onclick="saveWeaponData()" style="width:100%;padding:14px;background:#1c1a18;color:#ccc;border:1px solid #333;font-weight:bold;">무기 및 스탯 기록하기</button>
   </div>
 </div>
 
 <div id="inv-modal" class="auth-overlay">
-  <div class="auth-box" style="width:550px;padding:35px;border:1px solid var(--accent-color);background-image:url('https://www.transparenttextures.com/patterns/p6-dark.png');">
+  <div class="auth-box" style="width:550px;padding:35px;border:1px solid var(--accent-color);background:#1a1817;">
     <span class="auth-close" onclick="closeModal('inv-modal')">&times;</span>
     <h2 id="inv-modal-title" style="text-align:center;color:var(--accent-color);letter-spacing:4px;margin-bottom:20px;">인벤토리 관리</h2>
-    
     <div class="phase-tabs" id="inv-tabs" style="margin-bottom:15px;grid-template-columns:1fr 1fr;">
       <button class="phase-btn active" onclick="changeInvTab('general')">소지품</button>
       <button class="phase-btn" onclick="changeInvTab('furniture')">보관함</button>
     </div>
-    
     <div id="inv-modal-grid" class="rpg-inventory" style="margin:0 auto 20px auto;justify-content:center;"></div>
-    
     <div id="inv-slot-form" style="display:none;background:rgba(30,30,30,0.9);padding:20px;border-radius:8px;border:1px dashed var(--accent-color);">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;">
         <h3 id="inv-slot-title" style="color:var(--accent-color);margin:0;font-size:1.1rem;">N번 칸 편집</h3>
@@ -864,7 +356,6 @@
         <button id="inv-apply-btn" onclick="applyInvSlot()" style="background:#fff;color:#000;border:none;padding:8px 15px;border-radius:4px;cursor:pointer;font-weight:bold;">적용</button>
       </div>
     </div>
-    
     <button id="inv-save-btn" class="auth-btn" onclick="window.saveInventoryToDB()" style="margin-top:25px;font-weight:bold;">인벤토리 저장</button>
   </div>
 </div>
@@ -901,64 +392,6 @@
   </div>
 </div>
 
-<div id="reply-modal" class="auth-overlay">
-  <div class="auth-box" style="width:450px;padding:35px;border:1px solid var(--accent-color);">
-    <span class="auth-close" onclick="closeModal('reply-modal')">&times;</span>
-    <h2 style="text-align:center;color:var(--accent-color);letter-spacing:2px;margin-bottom:20px;font-family:'Nanum Myeongjo',serif;">답글 작성</h2>
-    <input type="hidden" id="reply-parent-id">
-    <textarea id="reply-modal-content" class="modal-inline-textarea" style="height:100px;margin-bottom:15px;" placeholder="답글 내용을 입력하세요..."></textarea>
-    <div style="display:flex;gap:10px;align-items:center;">
-      <input type="file" id="reply-modal-file" accept="image/*" style="flex-grow:1;color:#ccc;font-size:0.85rem;">
-      <button class="auth-btn" style="width:100px;margin:0;" onclick="submitReply()">기록</button>
-    </div>
-  </div>
-</div>
-
-<div id="gift-modal" class="auth-overlay">
-  <div class="auth-box" style="width:350px;padding:30px;text-align:center;border:2px solid #4caf50 !important;">
-    <span class="auth-close" onclick="closeModal('gift-modal')">&times;</span>
-    <h2 style="color:#4caf50;margin-bottom:15px;">우편 보내기</h2>
-    <p style="color:#ccc;font-size:0.85rem;margin-bottom:20px;">이 아이템을 누구에게 보낼까요?</p>
-    
-    <select id="gift-target" class="auth-input" style="width:100%;margin-bottom:20px;background:#222;color:#fff;border:1px solid #4caf50;">
-      <option value="char-ho1">가나다</option>
-      <option value="char-ho2">라마바</option>
-      <option value="char-ho3">사아자</option>
-      <option value="char-ho4">차카타</option>
-    </select>
-    
-    <button id="send-gift-btn" class="auth-btn" onclick="sendGift()" style="background:#4caf50;color:#fff;">우편 발송하기</button>
-  </div>
-</div>
-
-<div id="mailbox-modal" class="auth-overlay">
-  <div class="auth-box" style="width:450px;padding:30px;border:2px solid #4caf50 !important;">
-    <span class="auth-close" onclick="closeModal('mailbox-modal')">&times;</span>
-    <h2 style="color:#4caf50;text-align:center;margin-bottom:20px;">도착한 우편함</h2>
-    <div id="mailbox-list" style="max-height:380px;overflow-y:auto;"></div>
-    <div style="text-align:center;margin-top:20px;">
-      <button class="auth-btn" onclick="closeModal('mailbox-modal')" style="background:#333;color:#fff;width:auto;padding:10px 40px;">닫기</button>
-    </div>
-  </div>
-</div>
-
-<div id="node-edit-modal" class="auth-overlay">
-  <div class="auth-box" style="width:400px;padding:30px;border:2px solid var(--accent-color);">
-    <span class="auth-close" onclick="closeModal('node-edit-modal')">&times;</span>
-    <h2 style="color:var(--accent-color);margin-bottom:20px;" id="node-modal-title">인물/진영 설정</h2>
-    <input type="hidden" id="node-idx">
-    <div style="text-align:left;margin-bottom:15px;"><label style="color:#aaa;font-size:0.85rem;">인물 이름</label><input type="text" id="node-name" class="auth-input" style="margin-top:5px;"></div>
-    <div style="text-align:left;margin-bottom:15px;"><label style="color:#aaa;font-size:0.85rem;">프로필 이미지 URL</label><input type="text" id="node-img" class="auth-input" style="margin-top:5px;" placeholder="https://..."></div>
-    <div style="text-align:left;margin-bottom:15px;"><label style="color:#aaa;font-size:0.85rem;">소속 진영</label><select id="node-faction" class="auth-input" style="padding:8px;margin-top:5px;" onchange="toggleNewFactionFields(this.value)"></select></div>
-    <div id="new-faction-fields" style="display:none;background:rgba(0,0,0,0.5);padding:10px;border-radius:8px;margin-bottom:15px;">
-      <div style="text-align:left;margin-bottom:10px;"><label style="color:#aaa;font-size:0.8rem;">새 진영 이름</label><input type="text" id="new-faction-name" class="auth-input" style="padding:5px;margin-top:5px;"></div>
-      <div style="text-align:left;"><label style="color:#aaa;font-size:0.8rem;">진영 테마 색상</label><input type="color" id="new-faction-color" style="width:100%;height:30px;border:none;margin-top:5px;" value="#ff4d4d"></div>
-    </div>
-    <button class="auth-btn" onclick="applyNodeEdit()" style="font-size:1rem;">적용하기</button>
-    <button class="auth-btn" id="btn-delete-node" onclick="deleteNode()" style="background:#8b0000;color:#fff;margin-top:10px;font-size:1rem;">이 인물 삭제</button>
-  </div>
-</div>
-
 <div id="money-modal" class="auth-overlay">
   <div class="auth-box" style="width:350px;text-align:center;border:2px solid var(--accent-color);">
     <span class="auth-close" onclick="closeModal('money-modal')">&times;</span>
@@ -972,27 +405,32 @@
   </div>
 </div>
 
-<button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()">
-  <img id="theme-icon" src="https://placehold.co/50x50/1a1614/d7b33d?text=T" alt="테마 전환">
-</button>
+<button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()">테마 전환</button>
 
 <script>
 window.addEventListener('load', function () {
   'use strict';
 
-  // 화면에 있는 여러 로그인 관련 버튼들을 찾습니다.
+  // 1. 관리자 이메일 목록 설정 (보안상 관리자만 타임라인 조작이 가능하도록 합니다)
+  window.ADMIN_EMAILS = ['admin@example.com', 'owner@mytrpg.com']; // ★ 본인의 이메일로 변경하세요.
+
+  // 로그인한 유저가 관리자인지 확인하는 함수
+  window.isAdmin = function() {
+      return currentUser && window.ADMIN_EMAILS.includes(currentUser.email);
+  };
+
+  // 2. 버튼 클릭 이벤트 연결
   var lBtn     = document.getElementById('do-login-btn');
   var sBtn     = document.getElementById('do-signup-btn');
   var loginNav = document.getElementById('login-btn');
   var logoutNav= document.getElementById('logout-btn');
 
-  // 버튼을 찾았다면, 클릭했을 때 실행할 함수들을 연결해줍니다.
   if (lBtn)      lBtn.addEventListener('click',      function () { if (typeof handleLogin    === 'function') handleLogin(); });
   if (sBtn)      sBtn.addEventListener('click',      function () { if (typeof handleSignUp  === 'function') handleSignUp(); });
   if (loginNav)  loginNav.addEventListener('click',  function () { if (typeof openAuthModal === 'function') openAuthModal(); });
   if (logoutNav) logoutNav.addEventListener('click', function () { if (typeof signOut        === 'function') signOut(); });
 
-  // 다른 JS 파일에 정의된 함수들이 제대로 있는지 확인하고, 있으면 실행시켜서 화면을 초기화합니다.
+  // 3. 페이지 뼈대(UI) 초기화 명령 실행
   if (typeof loadTheme              === 'function') loadTheme();
   if (typeof initCharacterPages     === 'function') initCharacterPages();
   if (typeof initDefaultInventories === 'function') initDefaultInventories();
@@ -1003,61 +441,36 @@ window.addEventListener('load', function () {
   if (typeof createDust             === 'function') createDust();
   if (typeof updateHomeSlider       === 'function') updateHomeSlider();
 
-  // 레이더 차트 그리는 함수는 화면이 준비된 후 0.5초 뒤에 실행합니다.
   setTimeout(function () { if (typeof drawAllRadarCharts === 'function') drawAllRadarCharts(); }, 500);
 
-  // TRPG 로그와 인물 관계 뱃지를 정리하는 함수를 실행합니다.
-  setTimeout(function () {
-    if (typeof parseAllLogs        === 'function') parseAllLogs();
-    if (typeof buildRelationBadges === 'function') buildRelationBadges();
-  }, 300);
-
-  // 전투용 드롭다운 메뉴를 준비시킵니다.
-  setTimeout(function () {
-    if (typeof CombatSys !== 'undefined') CombatSys.initDropdowns();
-  }, 500);
-
-  // 주식 시스템 차트와 데이터를 불러옵니다.
-  setTimeout(function () {
-    if (typeof initStockSystem === 'function') {
-      initStockSystem();
-    }
-  }, 600);
-
-  // 인벤토리에서 '가구 생성권'을 사용했을 때 바로 소모되지 않고, 
-  // 나만의 가구를 디자인할 수 있는 '가구 제작소(DIY 모달)'가 열리도록 가로채는 기능입니다.
+  // 4. 가구 제작(DIY) 아이템 사용 가로채기
   setTimeout(function () {
     var _originalUse = window.useInvItemOne;
-    
     window.useInvItemOne = function () {
       var nameEl = document.getElementById('inv-slot-name');
       var itemName = nameEl ? nameEl.value : '';
 
-      // 아이템 이름에 '생성권'이나 'DIY'라는 단어가 포함되어 있다면
+      // 아이템 이름에 '생성권'이나 'DIY'가 있으면 제작소 팝업을 띄웁니다.
       if (itemName.includes('생성권') || itemName.includes('DIY')) {
-        // 일단 인벤토리 팝업은 안 보이게 숨깁니다.
         var invModal = document.getElementById('inv-modal');
         if (invModal) invModal.classList.remove('show');
 
-        // 가구 제작소 입력칸을 싹 비우고 깨끗하게 준비합니다.
         ['diy-name','diy-desc','diy-file'].forEach(function(id){
           var el = document.getElementById(id); if(el) el.value = '';
         });
         document.getElementById('diy-width').value  = '80';
         document.getElementById('diy-height').value = '80';
-        
-        // 가구 제작소 팝업을 화면 중앙에 띄웁니다.
         document.getElementById('diy-modal').classList.add('show');
         return;
       }
-
-      // 일반 아이템이라면 원래 하던 대로 1개를 그냥 소모시킵니다.
       if (typeof _originalUse === 'function') _originalUse();
     };
   }, 400); 
 });
 
-// 가구 제작소에서 나만의 가구 정보를 다 적고 '제작하기' 버튼을 눌렀을 때 실행되는 함수입니다.
+// ================================================================
+// 가구 제작소 (DIY) 데이터 저장 기능
+// ================================================================
 window.submitDiyFurniture = async function () {
   var btn       = document.getElementById('diy-submit-btn');
   var nameInput = document.getElementById('diy-name').value.trim();
@@ -1066,26 +479,22 @@ window.submitDiyFurniture = async function () {
   var heightInput = parseInt(document.getElementById('diy-height').value) || 80;
   var fileInput   = document.getElementById('diy-file');
 
-  // 이름과 이미지는 꼭 필요하므로, 빼먹었으면 경고창을 띄우고 멈춥니다.
   if (!nameInput)                                      return alert('가구 이름을 입력해주세요.');
   if (!fileInput.files || fileInput.files.length === 0) return alert('가구 이미지를 첨부해주세요.');
   if (!currentUser)                                    return alert('로그인이 필요합니다.');
 
-  // 본인 캐릭터인지 한 번 더 확인합니다.
   var myCharId = charOwners[currentUser.email];
   if (!myCharId) return alert('캐릭터 권한이 없습니다.');
 
   btn.disabled = true;
-  btn.innerText = '공방에서 제작 중...'; // 버튼을 막고 안내 문구를 보여줍니다.
+  btn.innerText = '공방에서 제작 중...';
 
   try {
     var imgUrl = '';
-    // 첨부한 가구 이미지를 외부 사진 서버(ImgBB)에 올립니다.
     if (typeof uploadToImgbb === 'function') {
       imgUrl = await uploadToImgbb(fileInput.files[0]);
       if (!imgUrl) throw new Error('이미지 업로드 실패');
     } else {
-      // 서버가 없다면 그냥 브라우저 내부에서만 보이게 임시로 처리합니다.
       imgUrl = await new Promise(function (resolve, reject) {
         var reader = new FileReader();
         reader.onload  = function (e) { resolve(e.target.result); };
@@ -1094,7 +503,6 @@ window.submitDiyFurniture = async function () {
       });
     }
 
-    // 데이터베이스에서 내 현재 가방(소지품)과 보관함 목록을 가져옵니다.
     var fetchRes = await supabaseClient
       .from('character_profiles')
       .select('inventory, furniture_inventory')
@@ -1105,29 +513,22 @@ window.submitDiyFurniture = async function () {
 
     var generalInv = [];
     var furnInv    = [];
-    
-    // 가져온 데이터를 깔끔한 배열로 정리합니다.
     try { if (profile.inventory)           generalInv = typeof profile.inventory           === 'string' ? JSON.parse(profile.inventory)           : profile.inventory;           } catch(e){}
     try { if (profile.furniture_inventory) furnInv    = typeof profile.furniture_inventory === 'string' ? JSON.parse(profile.furniture_inventory) : profile.furniture_inventory; } catch(e){}
     if (!Array.isArray(generalInv)) generalInv = [];
     if (!Array.isArray(furnInv))    furnInv    = [];
 
-    // 가방을 뒤져서 '생성권'을 찾습니다.
+    // 생성권 소모 처리
     var ticketIdx = generalInv.findIndex(function (it) {
       return it && ((it.name || '').includes('생성권') || (it.name || '').includes('DIY'));
     });
-    // 생성권이 없으면 가구를 못 만듭니다.
     if (ticketIdx === -1) throw new Error('소지품에 가구 생성권이 없습니다! 상점에서 먼저 구매해주세요.');
 
-    // 생성권 1개를 소모 처리합니다.
     var ticketCount = parseInt(generalInv[ticketIdx].count) || 1;
     if (ticketCount > 1) { generalInv[ticketIdx].count = ticketCount - 1; }
-    else                 { generalInv.splice(ticketIdx, 1); } // 1장뿐이었으면 빈칸으로 만듭니다.
+    else                 { generalInv.splice(ticketIdx, 1); }
 
-    // 80픽셀 단위로 타일 칸 수를 계산합니다.
     var tileW = Math.max(1, Math.round(widthInput / 80));
-    
-    // 방금 만든 새 가구를 내 보관함 배열에 추가합니다.
     furnInv.push({
       id:     'custom_furn_' + Date.now(),
       name:   nameInput,
@@ -1139,7 +540,6 @@ window.submitDiyFurniture = async function () {
       height: heightInput
     });
 
-    // 소모된 가방 데이터와 새 가구가 들어간 보관함 데이터를 통째로 DB에 덮어씌워 저장합니다.
     var updateRes = await supabaseClient
       .from('character_profiles')
       .update({
@@ -1150,196 +550,162 @@ window.submitDiyFurniture = async function () {
 
     if (updateRes.error) throw updateRes.error;
 
-    // 다 끝났으니 성공 알림을 띄우고 모달을 닫습니다.
-    alert(' [' + nameInput + '] 가구가 완성되었습니다!\n마이룸의 [보관함] 탭에서 확인하세요.');
+    alert('[' + nameInput + '] 가구가 완성되었습니다!\n마이룸의 [보관함] 탭에서 확인하세요.');
     document.getElementById('diy-modal').classList.remove('show');
 
-    // 만약 마이룸 꾸미기 모드 중이었다면 가구 목록을 새로고침해줍니다.
     if (typeof MyRoomSys !== 'undefined' && MyRoomSys.isEditMode) MyRoomSys._loadInventory();
 
   } catch (e) {
     console.error(e);
-    alert('가구 제작 중 오류: ' + e.message); // 에러가 나면 원인을 띄워줍니다.
+    alert('가구 제작 중 오류: ' + e.message);
   } finally {
-    // 성공하든 실패하든 버튼을 다시 누를 수 있게 원상태로 되돌려놓습니다.
     btn.disabled = false;
     btn.innerText = '가구 제작하기 (생성권 1개 소모)';
   }
 };
 
-
 // ================================================================
-// [신규 추가] 캐릭터 테마곡 (BGM) 관련 함수
-// 초보자 안내: 유튜브 URL에서 아이디를 뽑아내서 숨겨진 플레이어로 음악을 틀어줍니다.
+// 캐릭터 배경음악(BGM) 위젯 재생 기능
 // ================================================================
 var isBgmPlaying = false;
 
-// 유튜브 주소에서 고유 ID를 뽑아내는 함수입니다.
 function extractYouTubeID(url) {
-    if (!url) return null;
-    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-    var match = url.match(regExp);
-    return (match && match[2].length === 11) ? match[2] : null;
+  if (!url) return null;
+  var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  var match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : null;
 }
 
-// BGM 위젯 세팅 함수 (캐릭터 프로필 정보가 로드될 때 실행됩니다)
 window.setupCharacterBGM = function(bgmUrl) {
-    var widget = document.getElementById('bgm-widget');
-    var container = document.getElementById('bgm-player-container');
-    var btn = document.getElementById('btn-toggle-bgm');
-    
-    // 이전에 틀어져 있던 음악이 있다면 초기화합니다.
-    container.innerHTML = '';
-    isBgmPlaying = false;
-    if (btn) {
-        btn.innerText = '음악 켜기';
-        btn.classList.remove('playing');
-    }
+  var widget = document.getElementById('bgm-widget');
+  var container = document.getElementById('bgm-player-container');
+  var btn = document.getElementById('btn-toggle-bgm');
+  
+  container.innerHTML = '';
+  isBgmPlaying = false;
+  if (btn) {
+      btn.innerText = '음악 켜기';
+      btn.classList.remove('playing');
+  }
 
-    var ytId = extractYouTubeID(bgmUrl);
-    
-    // 테마곡 주소가 정상적이라면 위젯 버튼을 화면에 보여줍니다.
-    if (ytId) {
-        widget.style.display = 'block';
-        // 유튜브 iframe(플레이어)을 숨겨진 채로 생성합니다.
-        container.innerHTML = '<iframe id="yt-bgm-iframe" width="10" height="10" ' +
-                              'src="https://www.youtube.com/embed/' + ytId + '?enablejsapi=1&loop=1&playlist=' + ytId + '" ' +
-                              'frameborder="0" allow="autoplay"></iframe>';
-    } else {
-        // 주소가 없으면 버튼을 숨깁니다.
-        widget.style.display = 'none';
-    }
+  var ytId = extractYouTubeID(bgmUrl);
+  if (ytId) {
+      widget.style.display = 'block';
+      container.innerHTML = '<iframe id="yt-bgm-iframe" width="10" height="10" ' +
+                            'src="https://www.youtube.com/embed/' + ytId + '?enablejsapi=1&loop=1&playlist=' + ytId + '" ' +
+                            'frameborder="0" allow="autoplay"></iframe>';
+  } else {
+      widget.style.display = 'none';
+  }
 };
 
-// 화면 우측 하단의 [음악 켜기/끄기] 버튼을 누르면 실행되는 함수입니다.
 window.toggleCharacterBGM = function() {
-    var iframe = document.getElementById('yt-bgm-iframe');
-    var btn = document.getElementById('btn-toggle-bgm');
-    if (!iframe) return;
+  var iframe = document.getElementById('yt-bgm-iframe');
+  var btn = document.getElementById('btn-toggle-bgm');
+  if (!iframe) return;
 
-    if (!isBgmPlaying) {
-        // 음악 재생 명령을 내립니다.
-        iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-        btn.innerText = '음악 끄기';
-        btn.classList.add('playing');
-        isBgmPlaying = true;
-    } else {
-        // 음악 일시정지 명령을 내립니다.
-        iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-        btn.innerText = '음악 켜기';
-        btn.classList.remove('playing');
-        isBgmPlaying = false;
-    }
+  if (!isBgmPlaying) {
+      iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+      btn.innerText = '음악 끄기';
+      btn.classList.add('playing');
+      isBgmPlaying = true;
+  } else {
+      iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+      btn.innerText = '음악 켜기';
+      btn.classList.remove('playing');
+      isBgmPlaying = false;
+  }
 };
 
-/* ================================================================= */
-/* 타임라인(메인 페이즈) 관리 시스템                                   */
-/* 초보자 안내: 스토리의 '1부', '2부' 등 전체적인 시간대를 설정합니다. */
-/* ================================================================= */
+// ================================================================
+// 전역 타임라인(Phase) 제어 시스템 (관리자 + 실시간 동기화)
+// ================================================================
 
-// 전역 메인 페이즈 변수 (기본값: 0 = 1부)
 window.globalMainPhase = 0; 
-window.combatRequestedPhases = { myPhase: 0, targetPhase: 0 };
 
-/* ================================================================= */
-/* 타임라인(메인 페이즈) 관리 & 프로필/BGM 자동 전환 시스템          */
-/* ================================================================= */
-
-// 1. 좌측 사이드바에서 드롭다운 메뉴로 페이즈(타임라인)를 변경할 때 실행됩니다.
-window.setGlobalPhase = function(val) {
-    window.globalMainPhase = parseInt(val, 10);
-    alert('기준 타임라인이 ' + (window.globalMainPhase + 1) + '부로 변경되었습니다.\n페이즈를 명시하지 않은 행동은 이제 이 타임라인을 기준으로 판정됩니다.');
+// 1. 화면 내 모든 탭 상자를 찾아 강제로 동기화하는 함수
+window.syncAllTabs = function(phase) {
+    window.globalMainPhase = phase;
     
-    // 현재 화면에 열려있는 탭이 캐릭터 프로필이라면, 해당 캐릭터의 시간대 화면도 즉시 변경해줍니다.
-    var activeSection = document.querySelector('section.content-card.active');
-    if (activeSection && activeSection.id.startsWith('char-')) {
-        var phaseBtns = activeSection.querySelectorAll('.phase-tabs > .phase-btn');
-        if (phaseBtns.length > window.globalMainPhase) {
-            var targetBtn = phaseBtns[window.globalMainPhase];
-            if (typeof window.changePhase === 'function') {
-                window.changePhase(targetBtn, window.globalMainPhase);
+    document.querySelectorAll('.phase-tabs').forEach(tabContainer => {
+        const buttons = tabContainer.querySelectorAll('.phase-btn');
+        // 첫 번째 버튼 글씨에 '1부'가 포함된 진짜 타임라인 탭에서만 동작하도록 제한
+        if (buttons.length > 0 && buttons[0].innerText.includes('1부')) {
+            if (buttons[phase]) {
+                // 클릭 이벤트를 직접 발생시켜 홈 화면, 갤러리 등의 연결된 함수가 모두 작동하게 함
+                buttons[phase].click(); 
             }
         }
-    }
+    });
+    console.log("전체 타임라인 동기화 완료: " + (phase + 1) + "부");
 };
 
-// 2. 캐릭터 얼굴을 눌러서 '캐릭터 탭'에 들어갈 때, 설정된 타임라인(부)에 맞는 음악과 화면을 자동으로 띄워줍니다.
-var _openTabHooked = false;
-var _bgmHookInterval = setInterval(function () {
-    // openTab 함수가 메모리에 불러와질 때까지 기다렸다가 가로챕니다.
-    if (typeof window.openTab === 'function' && !_openTabHooked) {
-        _openTabHooked = true;
-        clearInterval(_bgmHookInterval);
-        
-        var _originalOpenTab = window.openTab;
-        window.openTab = function (tabName, btn) {
-            // 기존의 화면 전환 기능을 먼저 정상적으로 실행합니다.
-            _originalOpenTab.apply(this, arguments);
-            
-            // 만약 눌린 메뉴가 캐릭터 프로필 창이라면?
-            if (tabName.startsWith('char-')) {
-                var targetPhase = window.globalMainPhase || 0; // 전역 메인 페이즈 가져오기
-                
-                // [기능 1] 사이드바에서 설정한 타임라인(N부)에 맞춰서 프로필 페이즈 탭 자동 전환
-                var section = document.getElementById(tabName);
-                if (section) {
-                    var phaseBtns = section.querySelectorAll('.phase-tabs > .phase-btn');
-                    if (phaseBtns.length > targetPhase) {
-                        var targetBtn = phaseBtns[targetPhase];
-                        if (typeof window.changePhase === 'function') {
-                            window.changePhase(targetBtn, targetPhase);
-                        }
-                    }
-                }
-
-                // [기능 2] 설정된 캐릭터와 타임라인(페이즈)에 맞는 BGM 불러오기
-                if (typeof allProfiles !== 'undefined') {
-                    var profile = allProfiles.find(function(p) { 
-                        var pid = p.char_id.startsWith('char-') ? p.char_id : 'char-' + p.char_id;
-                        return pid === tabName && p.phase === targetPhase; 
-                    });
-                    
-                    if (profile && typeof setupCharacterBGM === 'function') {
-                        setupCharacterBGM(profile.bgm_url);
-                    } else if (typeof setupCharacterBGM === 'function') {
-                        setupCharacterBGM(''); // 해당 부에 등록된 BGM이 없으면 위젯 숨김
-                    }
-                }
-            } else {
-                // 캐릭터 탭이 아닌 다른 메뉴(상점, 대문 등)로 이동하면 BGM 위젯 숨기기
-                if (typeof setupCharacterBGM === 'function') setupCharacterBGM('');
-            }
-        };
+// 2. 관리자가 드롭다운 메뉴로 타임라인을 바꿨을 때 DB에 저장
+window.setGlobalPhase = async function(val) {
+    if (!window.isAdmin()) {
+        alert("타임라인 변경 권한이 없습니다.");
+        // 관리자가 아니면 원래 값으로 화면을 되돌림
+        document.getElementById('global-main-phase').value = window.globalMainPhase;
+        return;
     }
-}, 200);
 
-// 특정 시간대(페이즈)가 선택되지 않았다면 기본 전역 타임라인 값을 줍니다.
-window.getEffectivePhase = function(specificPhaseStr) {
-    if (specificPhaseStr === "" || specificPhaseStr === null || specificPhaseStr === undefined) {
-        return window.globalMainPhase;
-    }
-    return parseInt(specificPhaseStr, 10);
-};
+    const newPhase = parseInt(val, 10);
+    
+    // Supabase DB에 값 업데이트
+    const { error } = await supabaseClient
+        .from('system_settings')
+        .update({ current_phase: newPhase })
+        .eq('id', 1);
 
-// [신규 기능] 대련장(전투) 신청 시, 1부의 나와 2부의 상대가 싸우는 등 시간대를 교차해서 싸울 수 있게 해줍니다.
-window.prepareAndChallenge = function() {
-    // 드롭다운에서 선택한 '나의 타임라인'과 '상대의 타임라인'을 가져옵니다.
-    var myPhase = window.getEffectivePhase(document.getElementById('spar-my-phase').value);
-    var targetPhase = window.getEffectivePhase(document.getElementById('spar-target-phase').value);
-    
-    // CombatSys(전투 시스템)에서 가져다 쓸 수 있도록 전역 변수에 임시로 저장합니다.
-    window.combatRequestedPhases = {
-        myPhase: myPhase,
-        targetPhase: targetPhase
-    };
-    
-    // 준비가 끝났으니 실제 전투 신청 함수를 실행합니다.
-    if (typeof CombatSys !== 'undefined' && typeof CombatSys.challenge === 'function') {
-        CombatSys.challenge();
+    if (error) {
+        alert("저장 실패: " + error.message);
     } else {
-        alert('전투 시스템이 로드되지 않았습니다.');
+        // 저장이 완료되면 동기화 함수 실행
+        window.syncAllTabs(newPhase);
     }
 };
+
+// 3. 페이지 새로고침 시 데이터베이스 값을 불러와서 유지하는 기능
+window.addEventListener('load', async function () {
+    const { data, error } = await supabaseClient
+        .from('system_settings')
+        .select('current_phase')
+        .eq('id', 1)
+        .single();
+
+    if (error) {
+        console.warn("데이터베이스에서 타임라인 정보를 불러오지 못했습니다.", error.message);
+        return;
+    }
+
+    if (data !== null) {
+        const savedPhase = data.current_phase;
+        
+        // 화면이 완전히 다 그려진 뒤에 동기화가 이루어지도록 1초 기다립니다. (에러 방지용)
+        setTimeout(() => {
+            const selectBox = document.getElementById('global-main-phase');
+            if (selectBox) selectBox.value = savedPhase;
+            window.syncAllTabs(savedPhase);
+        }, 1000);
+    }
+});
+
+// 4. 누군가 DB를 변경했을 때 실시간으로 다른 접속자의 화면도 갱신하는 기능 (구독)
+setTimeout(() => {
+    if (typeof supabaseClient !== 'undefined') {
+        supabaseClient
+          .channel('phase_sync')
+          .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'system_settings' }, 
+          (payload) => {
+              const syncedPhase = payload.new.current_phase;
+              const selectBox = document.getElementById('global-main-phase');
+              if (selectBox) selectBox.value = syncedPhase;
+              window.syncAllTabs(syncedPhase);
+          })
+          .subscribe();
+    }
+}, 1500);
+
 </script>
 </body>
 </html>
